@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" type="text/css" rel="stylesheet" >
+<title>{$cp_title} :: {$cute_version}</title>
+</head>
+<body>
+<div id="content">
+  <!-- header -->
+  {include="header"}
+  <!-- header -->
+  <!-- sidebar -->
+  {include="sidebar"}
+  <!-- sidebar -->
+  <!-- conteudo -->
+  <div id="conteudo">
+    {if="$is_logged"}
+		<div class="info-div">Você está logado como: <b>Eru Yuuko</b>.</div>
+	{/if}
+    {include="$content"}
+  </div>
+  <!-- conteudo -->
+</div>
+<!-- creditos -->
+{include="rodape"}
+<!-- creditos -->
+</body>
+</html>

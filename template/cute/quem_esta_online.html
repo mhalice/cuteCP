@@ -1,0 +1,28 @@
+<div class="title">Quem está online</div>
+<div class="conteudo">
+Há <b>{$online_count}</b> jogadores online.
+  {if="$online_count > 1"}
+<table width="486" cellpadding="5" cellspacing="0" class="tabela">
+  <thead class="thead">
+      <tr>
+        <td>Nome</td>
+        <td align="center">Level de Classe</td>
+        <td align="center">Level de Job</td>
+        <td>Classe</td>
+		{if="$allow_last_location"}<td>Último local</td>{/if}
+      </tr>
+  </thead>
+  {$i=0}
+  {loop="dados"}
+  <tr>
+    <td>{if="$dados.$i.level >= 1 && $dados.$i.level <= 10"}<span class="badge badge-orange">VIP</span>{/if} {$dados.$i.name}</td>
+    <td align="center">{$dados.$i.base_level}</td>
+    <td align="center">{$dados.$i.job_level}</td>
+	<td>{function="getjobname($dados.$i.class)"}</td>
+    {if="$allow_last_location"}<td>{$dados.$i.last_map}</td>{/if}
+  </tr>
+  {$i=$i+1}
+  {/loop}
+  {/if}
+</table>
+</div>

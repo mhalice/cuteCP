@@ -12,7 +12,7 @@
 	for( $i = 1; $i <= 31; $i++ )
 		$dias[] = $i;
 	$mes = array(
-		'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+		'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
 	);
 	for( $i = 2013; $i >= 1960; $i-- )
 		$ano[] = $i;

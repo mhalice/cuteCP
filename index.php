@@ -23,5 +23,8 @@ $tpl->assign( 'cp_title', CP_TITLE );
 $tpl->assign( 'cp_desc', CP_DESC );
 $tpl->assign( 'cute_version', $version );
 $tpl->assign( 'is_logged', is_logged() );
+// check login session
+if( is_logged() )
+	$tpl->assign( 'member', array( 'login' => s_var( 'login' ),	'gm_level' => s_var( 'gm_level' ) ) );
 require_once( 'modules/index.php' );
 ?>

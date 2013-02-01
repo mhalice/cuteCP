@@ -158,6 +158,6 @@ function	getjobname( $jobid ){
 
 function	s_var( $name )
 {
-	return isset($_SESSSION[$name]) ? $_SESSION[$name]:'Variavel desconhecida';
+	return isset($_SESSION[$name]) ? $_SESSION[$name]:'Variavel desconhecida';
 }
 ?>

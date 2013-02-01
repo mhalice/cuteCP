@@ -12,7 +12,7 @@
 	for( $i = 1; $i <= 31; $i++ )
 		$dias[] = $i;
 	$mes = array(
-		'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Junho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+		'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
 	);
 	for( $i = 2013; $i >= 1960; $i-- )
 		$ano[] = $i;
@@ -24,11 +24,11 @@
 		$dados = $core->request( 'POST' );
 		if( strlen( $dados[ 'login' ] ) < 4 || strlen( $dados[ 'senha' ] ) < 4 )
 		{
-			$tpl->assign( 'msg', 'Login e/ou senha inválidos.' );
+			$tpl->assign( 'msg', '<div class="alert error">Login e/ou senha inválidos.</div>' );
 		}
 		else if( $dados[ 'senha' ] != $dados[ 'confirme_senha' ] )
 		{
-			$tpl->assign( 'msg', 'As senhas são diferentes!' );
+			$tpl->assign( 'msg', '<div class="alert error">As senhas são diferentes!</div>' );
 		}
 		else
 		{
@@ -36,22 +36,21 @@
 			$senha = addslashes( $dados[ 'senha' ] );
 			$email = $dados[ 'email' ];
 			$level = 0;
+			$sexo = $dados[ 'sexo' ];
 			$ip = $_SERVER[ 'REMOTE_ADDR' ];
-			$query = $mysql->build_query( sprintf( "select * from `login` where `userid`='%s' and `user_pass`='%s'", $login, $senha ) );
+			$data = "{$dados[ 'ano' ]}-{$dados[ 'mes' ]}-{$dados[ 'dia' ]}";
+			$query = $mysql->build_query( sprintf( "select * from `login` where `userid`='%s' or `email`='%s'", $login, $email ) );
 			$query = $mysql->sql_query();
 			$query = $mysql->num_rows();
 			if( $query )
 			{
-				$query = $mysql->fetch_assoc();
-				$_SESSION[ 'logged_in' ] = 1;
-				$_SESSION[ 'gm_level' ] = $query[ 'level' ];
-				$_SESSION[ 'login' ] = $query[ 'userid' ];
-				$_SESSION[ 'senha' ] = $query[ 'user_pass' ];
-				Header( 'Location: index.php' );
+				$tpl->assign( 'msg', '<div class="alert error">Login ou Email já existente!</div>' );
 			}
 			else
 			{
-				$tpl->assign( 'msg', 'Login e/ou senha inválidos.' );
+				$query = $mysql->build_query( sprintf( "insert into `login` ( `userid`,`user_pass`,`sex`,`email`,`last_ip`,`birthdate` ) values( '%s', '%s', '%s', '%s', '%s', '%s' )", $login, $senha, $sexo, $email, $ip, $data ) );
+				$query = $mysql->sql_query();
+				$tpl->assign( 'msg', '<div class="alert success">Parabéns, você agora já pode logar no servidor!</div>' );
 			}
 		}
 	}

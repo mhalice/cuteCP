@@ -25,6 +25,9 @@ $tpl->assign( 'cute_version', $version );
 $tpl->assign( 'is_logged', is_logged() );
 // check login session
 if( is_logged() )
-	$tpl->assign( 'member', array( 'login' => s_var( 'login' ),	'gm_level' => s_var( 'gm_level' ) ) );
+{
+	$tpl->assign( 'member', array( 'account_id' => s_var( 'account_id' ), 'login' => s_var( 'login' ),	'gm_level' => s_var( 'gm_level' ) ) );
+	$member = array( 'account_id' => s_var( 'account_id' ), 'login' => s_var( 'login' ),	'gm_level' => s_var( 'gm_level' ) );
+}
 require_once( 'modules/index.php' );
 ?>

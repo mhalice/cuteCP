@@ -3,6 +3,7 @@
 
 ## Funcionalidades ativas:
 * Login
+* Registro
 * Ranking de Zeny
 * Ranking de Level
 * Ranking de Clã

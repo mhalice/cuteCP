@@ -2,11 +2,11 @@
   	<ul>
     	<li class="title">Principal</li>
         <li><a href="?module=home">Página inicial</a></li>
-		{if="!$is_logged"}
+        <li><a href="?module=online">Quem está online?</a></li>
+        {if="!$is_logged"}
         <li><a href="?module=login">Efetuar login</a></li>
         <li><a href="?module=register">Criar nova conta</a></li>
 		{/if}
-        <li><a href="?module=online">Quem está online?</a></li>
     </ul>
     <ul>
     	<li class="title">Rankings</li>

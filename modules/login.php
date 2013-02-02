@@ -15,7 +15,7 @@
 		$dados = $core->request( 'POST' );
 		if( strlen( $dados[ 'login' ] ) < 4 || strlen( $dados[ 'senha' ] ) < 4 )
 		{
-			$tpl->assign( 'msg', 'Login e/ou senha inválidos.' );
+			$tpl->assign( 'msg', '<div class="alert error">Login e/ou senha inválidos.</div>' );
 		}
 		else
 		{
@@ -28,14 +28,15 @@
 			{
 				$query = $mysql->fetch_assoc();
 				$_SESSION[ 'logged_in' ] = 1;
-				$_SESSION[ 'gm_level' ] = $query[ 'level' ];
+				$_SESSION[ 'gm_level' ] = $query[ GM_LEVEL_TABLE ];
+				$_SESSION[ 'account_id' ] = $query[ 'account_id' ];
 				$_SESSION[ 'login' ] = $query[ 'userid' ];
 				$_SESSION[ 'senha' ] = $query[ 'user_pass' ];
 				Header( 'Location: index.php' );
 			}
 			else
 			{
-				$tpl->assign( 'msg', 'Login e/ou senha inválidos.' );
+				$tpl->assign( 'msg', '<div class="alert error">Login e/ou senha inválidos.</div>' );
 			}
 		}
 	}

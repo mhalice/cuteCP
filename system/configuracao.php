@@ -34,6 +34,6 @@ $gm_level = array
 	);
 	
 // configurações online.php (quem esta online)
-$allow_last_location = false; // Liberar para ver a última localização ?
+$allow_last_location = 20; // Liberar para qual nível de GM verificar a posição ?
 
 ?>

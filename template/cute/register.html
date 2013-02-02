@@ -5,7 +5,7 @@
 {/if}
     <center>
         <form name="logar" method="post" action="">
-            <table width="412" border="0" cellpadding="4" cellspacing="4">
+            <table width="100%" border="0" cellpadding="4" cellspacing="0" class="table-simple">
               <tr>
                 <td>Login:</td>
                 <td align="center"><input type="text" name="login" id="textfield" /></td>
@@ -20,7 +20,7 @@
               </tr>
               <tr>
                 <td>Email:</td>
-                <td align="center"><input type="password" name="email" id="textfield" /></td>
+                <td align="center"><input type="text" name="email" id="textfield" /></td>
               </tr>
               <tr>
                 <td>Data de Nascimento</td>
@@ -28,8 +28,8 @@
                 <table width="100" border="0">
                   <tr>
                     <td>Dia:</td>
-                    <td>Mês</td>
-                    <td>Ano</td>
+                    <td>Mês:</td>
+                    <td>Ano:</td>
                   </tr>
                   <tr>
                     <td><select name="dia" id="select">
@@ -37,16 +37,23 @@
                     {/loop}
                   </select></td>
                     <td><select name="mes" id="select">
-                    {loop="meses"}<option value="{$key}">{$value}</option>
+                    {loop="meses"}<option value="{$key+1}">{$value}</option>
                     {/loop}
                   </select></td>
                     <td><select name="ano" id="select">
-                    {loop="ano"}<option value="{$key}">{$value}</option>
+                    {loop="ano"}<option value="{$value}">{$value}</option>
                     {/loop}
                   </select></td>
                   </tr>
                 </table>
 				</td>
+              </tr>
+			  <tr>
+                <td>Sexo:</td>
+                <td align="center"><select name="sexo" id="select">
+                    <option value="M">Masculino</option>
+					<option value="F">Feminino</option>
+                  </select></td>
               </tr>
               <tr>
                 <td>&nbsp;</td>

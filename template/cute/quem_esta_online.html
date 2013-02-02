@@ -9,17 +9,17 @@ Há <b>{$online_count}</b> jogadores online.
         <td align="center">Level de Classe</td>
         <td align="center">Level de Job</td>
         <td>Classe</td>
-		{if="$allow_last_location"}<td>Último local</td>{/if}
+		{if="$is_logged"}{if="$member.gm_level >= $allow_last_location"}<td>Último local</td>{/if}{/if}
       </tr>
   </thead>
   {$i=0}
   {loop="dados"}
   <tr>
-    <td>{if="$dados.$i.level >= 1 && $dados.$i.level <= 10"}<span class="badge badge-orange">VIP</span>{/if} {$dados.$i.name}</td>
+    <td>{if="$is_logged && $dados.$i.level >= 1 && $dados.$i.level <= 10"}<span class="badge badge-orange">VIP</span>{/if} {$dados.$i.name}</td>
     <td align="center">{$dados.$i.base_level}</td>
     <td align="center">{$dados.$i.job_level}</td>
 	<td>{function="getjobname($dados.$i.class)"}</td>
-    {if="$allow_last_location"}<td>{$dados.$i.last_map}</td>{/if}
+   {if="$is_logged"}{if="$member.gm_level >= $allow_last_location"}<td>{$dados.$i.last_map}</td>{/if}{/if}
   </tr>
   {$i=$i+1}
   {/loop}

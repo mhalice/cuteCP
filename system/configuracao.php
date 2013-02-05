@@ -12,7 +12,7 @@
 define( 'CP_TITLE', 'cuteCP' ); // titulo do painel
 define( 'CP_DESC', 'Painel de Controle' ); // descrição do painel
 define( 'THEME', 'cute' ); // tema
-define( 'GM_LEVEL_TABLE', 'level' ); // tabela que utilizada para nivel de GM (novos emuladores utilizam a tabela group_id)
+define( 'GM_LEVEL_TABLE', 'group_id' ); // tabela que utilizada para nivel de GM (novos emuladores utilizam a tabela group_id)
 
 // configurações da database
 define( 'SERVER_HOST', 'localhost' ); // ip do host

@@ -7,7 +7,7 @@
         <td align="center">Nome</td>
         <td align="center">Level de Base</td>
         <td align="center">Level de Job</td>
-		<td>Classe</td>
+		<td align="center">Classe</td>
       </tr>
   </thead>
   {$i=0}
@@ -18,7 +18,7 @@
     <td align="center">{$dados.$i.name}</td>
     <td align="center">{$dados.$i.base_level}</td>
 	<td align="center">{$dados.$i.job_level}</td>
-    <td>{function="getjobname($dados.$i.class)"}</td>
+    <td align="center">{function="getjobname($dados.$i.class)"}</td>
   </tr>
   {$pos=$pos+1}
   {$i=$i+1}

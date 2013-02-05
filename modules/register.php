@@ -30,6 +30,10 @@
 		{
 			$tpl->assign( 'msg', '<div class="alert error">As senhas são diferentes!</div>' );
 		}
+		else if( !filter_var($dados[ 'email' ], FILTER_VALIDATE_EMAIL) )
+		{
+			$tpl->assign( 'msg', '<div class="alert error">Email inválido.</div>' );
+		}
 		else
 		{
 			$login = addslashes( $dados[ 'login' ] );
@@ -38,7 +42,7 @@
 			$level = 0;
 			$sexo = $dados[ 'sexo' ];
 			$ip = $_SERVER[ 'REMOTE_ADDR' ];
-			$data = "{$dados[ 'ano' ]}-{$dados[ 'mes' ]}-{$dados[ 'dia' ]}";
+			$data = "{$dados[ 'ano' ]}-{$dados[ 'mes' ]}-{".(intval($dados[ 'dia' ]) + 1)."}";
 			$query = $mysql->build_query( sprintf( "select * from `login` where `userid`='%s' or `email`='%s'", $login, $email ) );
 			$query = $mysql->sql_query();
 			$query = $mysql->num_rows();

@@ -7,7 +7,7 @@
  * -------------
  * desenvolvido por eru yuuko
  */
-	$query = $mysql->build_query( 'select `char`.`account_id`,`char`.`name`,`char`.`base_level`,`char`.`job_level`,`char`.`class`,`char`.`last_map`,`login`.`level` from `char` INNER JOIN `login` ON ( `char`.`account_id`=`login`.`account_id` ) where `char`.`online`=1' );
+	$query = $mysql->build_query( 'select `char`.`account_id`,`char`.`name`,`char`.`base_level`,`char`.`job_level`,`char`.`class`,`char`.`last_map`,`login`.`'. GM_LEVEL_TABLE .'` from `char` INNER JOIN `login` ON ( `char`.`account_id`=`login`.`account_id` ) where `char`.`online`=1' );
 	$query = $mysql->sql_query();
 	$quantidade = $mysql->num_rows();
 	if( $quantidade ) {

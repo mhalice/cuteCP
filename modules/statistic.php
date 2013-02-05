@@ -7,7 +7,7 @@
  * -------------
  * desenvolvido por eru yuuko
  */
-	$query = $mysql->build_query( sprintf( "select * from `char` where `account_id`='%s'", $member[ 'account_id' ] ) );
+	$query = $mysql->build_query( sprintf( "select `char_id` from `char` where `account_id`='%s'", $member[ 'account_id' ] ) );
 	$query = $mysql->sql_query();
 	$total_chars = $mysql->num_rows();
 	$query = $mysql->build_query( sprintf( "select `last_ip`, `logincount`, `lastlogin` from `login` where `account_id`='%s'", $member[ 'account_id' ] ) );

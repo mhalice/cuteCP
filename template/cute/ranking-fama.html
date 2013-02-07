@@ -1,0 +1,72 @@
+<div class="title">Ranking de Fama</div>
+<div class="conteudo">
+  <h4 align="center">Ferreiro</h4>
+  <table width="99%" cellpadding="5" cellspacing="0" class="tabela">
+  <thead class="thead">
+      <tr>
+        <td align="center">Posição</td>
+        <td align="center">Nome</td>
+        <td align="center">Pontos</td>
+      </tr>
+  </thead>
+  {$i=0}
+  {$pos=1}
+  {loop="dados_bl"}
+  <tr>
+    <td align="center">{$pos}</td>
+    <td align="center">{$dados_bl.$i.name}</td>
+    <td align="center">{$dados_bl.$i.fame}</td>
+  </tr>
+  {$pos=$pos+1}
+  {$i=$i+1}
+  {/loop}
+  </table>
+</div>
+<br />
+<div class="conteudo">
+   <h4 align="center">Alquimista</h4>
+  <table width="99%" cellpadding="5" cellspacing="0" class="tabela">
+  <thead class="thead">
+      <tr>
+        <td align="center">Posição</td>
+        <td align="center">Nome</td>
+        <td align="center">Pontos</td>
+      </tr>
+  </thead>
+  {$i=0}
+  {$pos=1}
+  {loop="dados_al"}
+  <tr>
+    <td align="center">{$pos}</td>
+    <td align="center">{$dados_al.$i.name}</td>
+    <td align="center">{$dados_al.$i.fame}</td>
+  </tr>
+  {$pos=$pos+1}
+  {$i=$i+1}
+  {/loop}
+  </table>
+</div>
+<br />
+<div class="conteudo">
+  <h4 align="center">Taekwon</h4>
+  <table width="99%" cellpadding="5" cellspacing="0" class="tabela">
+  <thead class="thead">
+      <tr>
+        <td align="center">Posição</td>
+        <td align="center">Nome</td>
+        <td align="center">Pontos</td>
+      </tr>
+  </thead>
+  {$i=0}
+  {$pos=1}
+  {loop="dados_tk"}
+  <tr>
+    <td align="center">{$pos}</td>
+    <td align="center">{$dados_tk.$i.name}</td>
+    <td align="center">{$dados_tk.$i.fame}</td>
+  </tr>
+  {$pos=$pos+1}
+  {$i=$i+1}
+  {/loop}
+  </table>
+</div>

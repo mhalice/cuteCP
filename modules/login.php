@@ -7,6 +7,9 @@
  * -------------
  * desenvolvido por eru yuuko
  */
+	if( !DEFINED( 'IS_RUN' ) )
+		exit();
+		
 	if( is_logged() )
 		Header( 'Location: index.php' );
 		
@@ -20,7 +23,7 @@
 		else
 		{
 			$login = addslashes( $dados[ 'login' ] );
-			$senha = addslashes( $dados[ 'senha' ] );
+			$senha = md5_pass( $dados[ 'senha' ] );
 			$query = $mysql->build_query( sprintf( "select * from `login` where `userid`='%s' and `user_pass`='%s'", $login, $senha ) );
 			$query = $mysql->sql_query();
 			$query = $mysql->num_rows();
@@ -31,7 +34,6 @@
 				$_SESSION[ 'gm_level' ] = $query[ GM_LEVEL_TABLE ];
 				$_SESSION[ 'account_id' ] = $query[ 'account_id' ];
 				$_SESSION[ 'login' ] = $query[ 'userid' ];
-				$_SESSION[ 'senha' ] = $query[ 'user_pass' ];
 				Header( 'Location: index.php' );
 			}
 			else

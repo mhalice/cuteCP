@@ -9,6 +9,7 @@
  */
 require_once('nucleo.php');
 require_once('database.php');
+require_once('configuracao.php');
 
 function	is_logged(){
 	return isset( $_SESSION[ 'logged_in'] );
@@ -160,4 +161,11 @@ function	s_var( $name )
 {
 	return isset($_SESSION[$name]) ? $_SESSION[$name]:'Variavel desconhecida';
 }
+
+function	md5_pass( $val )
+{
+	global $config;
+	return $config[ 'md5_pass' ] ? md5( $val ): $val;
+}
+
 ?>

@@ -7,6 +7,9 @@
  * -------------
  * desenvolvido por eru yuuko
  */
+	if( !DEFINED( 'IS_RUN' ) )
+		exit();
+		
 	if( is_logged() )
 		Header( 'Location: index.php' );
 	for( $i = 1; $i <= 31; $i++ )
@@ -37,7 +40,7 @@
 		else
 		{
 			$login = addslashes( $dados[ 'login' ] );
-			$senha = addslashes( $dados[ 'senha' ] );
+			$senha = ( !$config[ 'md5_pass' ] ) ? addslashes( $dados[ 'senha' ] ):md5( addslashes( $dados[ 'senha' ] ) );
 			$email = $dados[ 'email' ];
 			$level = 0;
 			$sexo = $dados[ 'sexo' ];

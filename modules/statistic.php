@@ -7,9 +7,12 @@
  * -------------
  * desenvolvido por eru yuuko
  */
- 	if( !is_logged() )
+	if( !DEFINED( 'IS_RUN' ) )
+		exit();
+	
+	if( !is_logged() )
 		Header( 'Location: index.php' );
-
+	
 	$query = $mysql->build_query( sprintf( "select `char_id` from `char` where `account_id`='%s'", $member[ 'account_id' ] ) );
 	$query = $mysql->sql_query();
 	$total_chars = $mysql->num_rows();

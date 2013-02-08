@@ -1,0 +1,58 @@
+<script>
+	$(function(){
+		$( "#mytabs" ).tabs();
+		$( ".is-ui-button" ).button();
+	});
+</script>
+<div class="title">Edite os dados de sua conta</div>
+<div class="conteudo">
+{if="isset( $msg )"}
+	{$msg}
+{/if}
+  <div id="mytabs">
+  	<ul>
+		<li><a href="#tabs-1">Editar minha senha</a></li>
+		<li><a href="#tabs-2">Editar meu email</a></li>
+	</ul>
+    <div id="tabs-1">Preencha os campos abaixo para <b>trocar sua senha</b>.
+    <form name="trocar-minha-senha" method="POST" action="?module=editar&do=edit-pass">
+		<table width="251" border="0" align="center" cellpadding="4" cellspacing="4">
+		  <tr>
+			<td>Senha antiga:</td>
+			<td><input type="password" name="senha_antiga" id="textfield" /></td>
+		  </tr>
+		  <tr>
+			<td>Nova senha:</td>
+			<td><input type="password" name="nova_senha" id="textfield" /></td>
+		  </tr>
+		  <tr>
+			<td>&nbsp;</td>
+			<td align="center"><button id="trocar-senha" class="is-ui-button" type="submit">Trocar</button></td>
+		  </tr>
+		</table>
+	</form>
+	</div>
+	<div id="tabs-2">
+		<form name="trocar-minha-senha" method="POST" action="?module=editar&do=edit-email">
+			<table width="251" border="0" align="center" cellpadding="4" cellspacing="4">
+			  <tr>
+				<td>Email antigo:</td>
+				<td><input type="text" name="email_antigo" id="textfield" /></td>
+			  </tr>
+			  <tr>
+				<td>Novo email:</td>
+				<td><input type="text" name="email_novo" id="textfield" /></td>
+			  </tr>
+			  <tr>
+				<td>Senha atual:</td>
+				<td><input type="password" name="senha_atual" id="textfield" /></td>
+			  </tr>
+			  <tr>
+				<td>&nbsp;</td>
+				<td align="center"><button id="trocar-senha" class="is-ui-button" type="submit">Trocar</button></td>
+			  </tr>
+			</table>
+		</form>
+	</div>
+  </div>
+</div>

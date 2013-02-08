@@ -7,6 +7,9 @@
  * -------------
  * desenvolvido por eru yuuko
  */
+	if( !DEFINED( 'IS_RUN' ) )
+		exit();
+		
 	if( !is_logged() )
 		Header( 'Location: index.php' );
 	$tpl->assign( 'content', 'logout' );

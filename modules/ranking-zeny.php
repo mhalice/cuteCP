@@ -7,6 +7,9 @@
  * -------------
  * desenvolvido por eru yuuko
  */
+	if( !DEFINED( 'IS_RUN' ) )
+		exit();
+		
 	$query = $mysql->build_query( 'select `name`,`class`,`zeny` from `char` order by `zeny` desc limit 0,100' );
 	$query = $mysql->sql_query();
 	$quantidade = $mysql->num_rows();

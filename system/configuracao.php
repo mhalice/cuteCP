@@ -33,7 +33,10 @@ $gm_level = array
 		99 => 'Administrador'
 	);
 	
-// configurações online.php (quem esta online)
-$allow_last_location = 20; // Liberar para qual nível de GM verificar a posição ?
+// configurações 
+$config = array(
+	'allow_last_location' => 20, // Liberar para qual nível de GM (ou grupo) verificar a posição ?
+	'md5_pass' => false // Utilizar MD5 nas senhas ?
+);
 
 ?>

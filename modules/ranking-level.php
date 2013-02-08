@@ -7,6 +7,9 @@
  * -------------
  * desenvolvido por eru yuuko
  */
+	if( !DEFINED( 'IS_RUN' ) )
+		exit();
+		
 	$query = $mysql->build_query( 'select `name`,`base_level`,`job_level`,`class` from `char` order by `base_level` desc limit 0,100' );
 	$query = $mysql->sql_query();
 	$quantidade = $mysql->num_rows();

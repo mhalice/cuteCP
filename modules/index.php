@@ -7,6 +7,9 @@
  * -------------
  * desenvolvido por eru yuuko
  */
+	if( !DEFINED( 'IS_RUN' ) )
+		exit();
+		
 	// verificamos se o jogador está logado
 	if( !isset( $_SESSION[ 'gm_level' ] ) )
 		$_SESSION[ 'gm_level' ] = -1;

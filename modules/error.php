@@ -7,7 +7,9 @@
  * -------------
  * desenvolvido por eru yuuko
  */
-	$tpl->assign( 'content', 'error' );
+	if( !DEFINED( 'IS_RUN' ) )
+		exit();
+	$tpl->assign( 'content', 'editar-dados' );
 	$tpl->draw( 'home' );
 
 ?>

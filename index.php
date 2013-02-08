@@ -7,7 +7,7 @@
  * -------------
  * desenvolvido por eru yuuko
  */
-$version = '1.0.0 Beta';
+$version = '1.1.0';
 require_once('system/nucleo.php');
 require_once('system/database.php');
 require_once('system/functions.php');
@@ -17,6 +17,8 @@ $mysql->build_mysql();
 // template system
 $tpl = new RainTPL();
 raintpl::$tpl_dir = "template/". THEME ."/";
+// todas as variaveis e arquivos do sistema iniciados
+DEFINE( 'IS_RUN', true );
 // global vars
 $tpl->assign( 'randomize', rand(5000000,1000000000) );
 $tpl->assign( 'cp_title', CP_TITLE );

@@ -13,3 +13,6 @@
 
 ## Equipe
 Eru Yuuko - desenvolvedora geral
+
+## Contribuidores
+mkbu95

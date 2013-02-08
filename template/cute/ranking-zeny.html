@@ -16,7 +16,7 @@
     <td align="center">{$pos}</td>
     <td align="center">{$dados.$i.name}</td>
     <td align="center">{function="getjobname($dados.$i.class)"}</td>
-	<td align="center">{$dados.$i.zeny}</td>
+	<td align="center">{function="number_format($dados.$i.zeny)"}</td>
   </tr>
   {$pos=$pos+1}
   {$i=$i+1}

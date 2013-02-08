@@ -7,6 +7,8 @@
 * Ranking de Zeny
 * Ranking de Level
 * Ranking de Clã
+* Ranking de Fama
+* Ver Personagens
 * Quem está online
 
 ## Equipe

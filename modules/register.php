@@ -40,7 +40,7 @@
 		else
 		{
 			$login = addslashes( $dados[ 'login' ] );
-			$senha = ( !$config[ 'md5_pass' ] ) ? addslashes( $dados[ 'senha' ] ):md5( addslashes( $dados[ 'senha' ] ) );
+			$senha = md5_pass( addslashes( $dados[ 'senha' ] ) );
 			$email = $dados[ 'email' ];
 			$level = 0;
 			$sexo = $dados[ 'sexo' ];

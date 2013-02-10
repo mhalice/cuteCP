@@ -10,6 +10,8 @@
 * Ranking de Fama
 * Ver Personagens
 * Quem está online
+* Editar email
+* Editar senha
 
 ## Equipe
 Eru Yuuko - desenvolvedora geral

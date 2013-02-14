@@ -26,17 +26,11 @@
 				$query = $mysql->fetch_assoc();
 				$dados[ 'senha_antiga' ] = md5_pass( $dados[ 'senha_antiga' ] );
 				if( $dados[ 'senha_antiga' ] != $query[ 'user_pass' ] )
-				{
 					$tpl->assign( 'msg', '<div class="alert error"><b>[Troca de senha]:</b> Senha atual inválida.</div>' );
-				}
 				else if( strlen( $dados[ 'nova_senha' ] ) <= 4 )
-				{
 					$tpl->assign( 'msg', '<div class="alert error"><b>[Troca de senha]:</b> Sua nova senha precisa de no mínimo 5 caracteres!</div>' );
-				}
 				else if( $dados[ 'senha_antiga' ] == $dados[ 'nova_senha' ] )
-				{
 					$tpl->assign( 'msg', '<div class="alert error"><b>[Troca de senha]:</b> As senhas são iguais!</div>' );
-				}
 				else
 				{
 					$dados[ 'nova_senha ' ] = $config[ 'md5_pass' ] ? md5( $dados[ 'nova_senha' ] ):$dados[ 'nova_senha' ];
@@ -59,21 +53,13 @@
 				$query = $mysql->sql_query();
 				$query = $mysql->fetch_assoc();
 				if( $dados[ 'senha_atual' ] != md5_pass( $query[ 'user_pass' ] ) )
-				{
 					$tpl->assign( 'msg', '<div class="alert error"><b>[Troca de Email]:</b> Senha inválida.</div>' );
-				}
 				else if( $dados[ 'email_antigo' ] != $query[ 'email' ] )
-				{
 					$tpl->assign( 'msg', '<div class="alert error"><b>[Troca de Email]:</b> Email antigo inválido.</div>' );
-				}
 				else if( $email_exists )
-				{
 					$tpl->assign( 'msg', '<div class="alert error"><b>[Troca de Email]:</b> Esse email já está sendo utilizado.</div>' );
-				}
 				else if( !filter_var( $dados[ 'email_novo' ], FILTER_VALIDATE_EMAIL ) )
-				{
 					$tpl->assign( 'msg', '<div class="alert error"><b>[Troca de Email]:</b> Email novo inválido.</div>' );
-				}
 				else
 				{
 					$query = $mysql->build_query( sprintf( "update `login` set `email`='%s' where `account_id`='%d'", $dados[ 'email_novo' ], s_var( 'account_id' ) ) );
@@ -83,9 +69,7 @@
 			}
 		}
 		else
-		{
 			Header( 'Location: index.php' );
-		}
 	}
 	
 	$tpl->assign( 'content', 'editar-dados' );

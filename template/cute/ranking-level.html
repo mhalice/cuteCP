@@ -1,18 +1,19 @@
-<div class="title">Ranking de Level</div>
+<div class="title">Ranking de Nível</div>
 <div class="conteudo">
   <table width="99%" cellpadding="5" cellspacing="0" class="tabela">
   <thead class="thead">
       <tr>
         <td align="center">Posição</td>
         <td align="center">Nome</td>
-        <td align="center">Level de Base</td>
-        <td align="center">Level de Job</td>
+        <td align="center">Nível de Base</td>
+        <td align="center">Nível de Classe</td>
 		<td align="center">Classe</td>
       </tr>
   </thead>
   {$i=0}
   {$pos=1}
   {loop="dados"}
+  {if="$dados.$i.level < 2"}
   <tr>
     <td align="center">{$pos}</td>
     <td align="center">{$dados.$i.name}</td>
@@ -20,6 +21,7 @@
 	<td align="center">{$dados.$i.job_level}</td>
     <td align="center">{function="getjobname($dados.$i.class)"}</td>
   </tr>
+  {/if}
   {$pos=$pos+1}
   {$i=$i+1}
   {/loop}

@@ -10,7 +10,7 @@
 	if( !DEFINED( 'IS_RUN' ) )
 		exit();
 		
-	$query = $mysql->build_query( 'select `name`,`class`,`zeny` from `char` order by `zeny` desc limit 0,100' );
+	$query = $mysql->build_query( 'select `name`,`class`,`zeny`,`login`.`'. GM_LEVEL_TABLE .'` from `char` inner join `login` on (`char`.`account_id` = `login`.`account_id`) order by `zeny` desc limit 0,100' );
 	$query = $mysql->sql_query();
 	$quantidade = $mysql->num_rows();
 	if( $quantidade ) {

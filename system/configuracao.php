@@ -35,7 +35,7 @@ $gm_level = array
 	
 // configurações 
 $config = array(
-	'allow_last_location' => 20, // Liberar para qual nível de GM (ou grupo) verificar a posição ?
+	'allow_last_location' => 2, // Liberar para qual grupo de GM (ou nível) verificar a posição ?
 	'md5_pass' => false // Utilizar MD5 nas senhas ?
 );
 

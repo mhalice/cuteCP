@@ -6,9 +6,10 @@
 	    <td align="center">Slot</td>
         <td align="center">Nome</td>
         <td align="center">Classe</td>
-        <td align="center">N&iacute;vel</td>
+        <td align="center">Nível de Base</td>
+		<td align="center">Nível de Classe</td>
 		<td align="center">Zeny</td>
-        <td align="center">&Uacute;ltimo Mapa</td>
+        <td align="center">Último Mapa</td>
       </tr>
   </thead>
   {$i=0}
@@ -17,8 +18,9 @@
     <td align="center">{$dados.$i.char_num}</td>
     <td align="center">{$dados.$i.name}</td>
 	<td align="center">{function="getjobname($dados.$i.class)"}</td>
-	<td align="center">{$dados.$i.base_level} / {$dados.$i.job_level}</td>
-	<td align="center">{$dados.$i.zeny}</td>
+	<td align="center">{$dados.$i.base_level}</td>
+	<td align="center">{$dados.$i.job_level}</td>
+	<td align="center">{function="number_format($dados.$i.zeny)"}</td>
     <td align="center">{$dados.$i.last_map}</td>
   </tr>
   {$i=$i+1}

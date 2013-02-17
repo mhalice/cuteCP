@@ -5,22 +5,24 @@ Há <b>{$online_count}</b> jogadores online.
 <table width="486" cellpadding="5" cellspacing="0" class="tabela">
   <thead class="thead">
       <tr>
-        <td>Nome</td>
-        <td align="center">Level de Classe</td>
-        <td align="center">Level de Job</td>
-        <td>Classe</td>
-		{if="$is_logged"}{if="$member.gm_level >= $allow_last_location"}<td>Último local</td>{/if}{/if}
+        <td align="center">Nome</td>
+        <td align="center">Nível de Base</td>
+        <td align="center">Nível de Classe</td>
+        <td align="center">Classe</td>
+		{if="$is_logged"}{if="$member.gm_level >= $allow_last_location"}<td align="center">Último local</td>{/if}{/if}
       </tr>
   </thead>
   {$i=0}
   {loop="dados"}
+  {if="($is_logged && ($member.gm_level >= $dados.$i.group_id && $dados.$i.group_id > 10)) || ($dados.$i.group_id <= 10)"}
   <tr>
-    <td>{if="$is_logged && $dados.$i.level >= 1 && $dados.$i.level <= 10"}<span class="badge badge-orange">VIP</span>{/if} {$dados.$i.name}</td>
+    <td align="center">{if="$is_logged && $dados.$i.group_id >= 1 && $dados.$i.group_id <= 10"}<span class="badge badge-orange">VIP</span>{/if} {$dados.$i.name}</td>
     <td align="center">{$dados.$i.base_level}</td>
     <td align="center">{$dados.$i.job_level}</td>
-	<td>{function="getjobname($dados.$i.class)"}</td>
-   {if="$is_logged"}{if="$member.gm_level >= $allow_last_location"}<td>{$dados.$i.last_map}</td>{/if}{/if}
+	<td align="center">{function="getjobname($dados.$i.class)"}</td>
+   {if="$is_logged"}{if="$member.gm_level >= $allow_last_location"}<td align="center">{$dados.$i.last_map}</td>{/if}{/if}
   </tr>
+  {/if}
   {$i=$i+1}
   {/loop}
   {/if}

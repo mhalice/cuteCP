@@ -1,0 +1,63 @@
+<div class="title">Instalação - <span>Instale o cuteCP</span></div>
+<div class="conteudo">
+	{if="isset( $msg )"}
+		{$msg}
+	{/if}
+	<h2>Configurações Simples</h2>
+	<form name="instalar" method="post" action="">
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="tabela">
+		  <tr>
+			<td>Título do Painel</td>
+			<td align="center"><input name="titulo_do_painel" type="text" id="textfield" size="30" value="MeuRO" /></td>
+		  </tr>
+		  <tr>
+			<td>Tabela utilizada para níveis de GM</td>
+			<td align="center"><select name="gm_table" id="select">
+			  <option value="group_id">Novo (group_id)</option>
+			  <option value="level">Antigo (level)</option>
+			</select></td>
+		  </tr>
+		  <tr>
+			<td>Template</td>
+			<td align="center"><select name="template" id="select">
+			  <option value="cute">Cute</option>
+			</select></td>
+		  </tr>
+		  <tr>
+			<td>Porta do <b>Login-server</b></td>
+			<td align="center"><input name="porta_login" type="text" id="textfield" size="10" value="6900" /></td>
+		  </tr>
+		  <tr>
+			<td>Porta do <b>Char-server</b></td>
+			<td align="center"><input name="porta_char" type="text" id="textfield" size="10" value="6121" /></td>
+		  </tr>
+		  <tr>
+			<td>Porta do <b>Map-server</b></td>
+			<td align="center"><input name="porta_map" type="text" id="textfield" size="10" value="5121" /></td>
+		  </tr>
+		</table>
+		<h2>Configurações do Banco de Dados</h2>
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="tabela">
+		  <tr>
+			<td>IP do Host</td>
+			<td align="center"><input name="ip_do_host" type="text" id="textfield" size="30" value="localhost" /></td>
+		  </tr>
+		  <tr>
+			<td>Usuário de conexão MySQL</td>
+			<td align="center"><input name="mysql_user" type="text" id="textfield" size="30" value="ragnarok" /></td>
+		  </tr>
+		  <tr>
+			<td>Senha do usuário de conexão</td>
+			<td align="center"><input name="mysql_pass" type="text" id="textfield" size="30" value="ragnarok" /></td>
+		  </tr>
+		  <tr>
+			<td>Database do Servidor</td>
+			<td align="center"><input name="mysql_database" type="text" id="textfield" size="30" value="ragnarok" /></td>
+		  </tr>
+		  <tr>
+			<td></td>
+			<td align="center"><button type="submit" class="cupid-green" id="logar-fast">Instalar!</button></td>
+		  </tr>
+		</table>
+	</form>
+</div>

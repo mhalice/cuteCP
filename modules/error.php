@@ -9,7 +9,7 @@
  */
 	if( !DEFINED( 'IS_RUN' ) )
 		exit();
-	$tpl->assign( 'content', 'editar-dados' );
+	$tpl->assign( 'content', 'error' );
 	$tpl->draw( 'home' );
 
 ?>

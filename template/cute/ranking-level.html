@@ -1,4 +1,4 @@
-<div class="title">Ranking de Nível</div>
+<div class="title">Ranking de Nível <span>- Os jogadores com níveis mais alto</span></div>
 <div class="conteudo">
   <table width="99%" cellpadding="5" cellspacing="0" class="tabela">
   <thead class="thead">
@@ -11,18 +11,18 @@
       </tr>
   </thead>
   {$i=0}
-  {$pos=1}
+  {$pos1=-5}
   {loop="dados"}
   {if="$dados.$i.level < 2"}
   <tr>
-    <td align="center">{$pos}</td>
+    <td align="center">{$pos1}</td>
     <td align="center">{$dados.$i.name}</td>
     <td align="center">{$dados.$i.base_level}</td>
 	<td align="center">{$dados.$i.job_level}</td>
     <td align="center">{function="getjobname($dados.$i.class)"}</td>
   </tr>
   {/if}
-  {$pos=$pos+1}
+  {$pos1=$pos1+1}
   {$i=$i+1}
   {/loop}
 </table>

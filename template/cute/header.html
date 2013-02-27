@@ -1,4 +1,39 @@
+<script>
+	$(function(){
+		$('#menu ul li').hover(function(){
+			$( this ).children( 'ul' ).slideDown();
+		}, function(){
+			$( this ).children( 'ul' ).slideUp();
+		});
+	});
+</script>
 <div id="header">
-  	<div class="cp_title">{$cp_title}</div>
-    <div class="cp_desc">{$cp_desc}</div>
+	{if="$installed"}
+  	<div class="server_status">
+		<div class="title">STATUS DO SERVIDOR</div>
+		<div class="status">Login-server: <span class="{$port_status['login']}">{$port_status['login']}</span></div>
+		<div class="status">Char-server: <span class="{$port_status['char']}">{$port_status['char']}</span></div>
+		<div class="status">Map-server: <span class="{$port_status['map']}">{$port_status['map']}</span></div>
+	</div>
+	{/if}
 </div>
+{if="$installed"}
+<div id="menu">
+	<ul>
+		<li><a href="?module=home">Principal</a></li>
+		<li><a href="#">Rankings</a>
+			<ul>
+				<a href="?module=ranking-level"><li>Ranking de Nível</li></a>
+				<a href="?module=ranking-zeny"><li>Ranking de Zeny</li></a>
+				<a href="?module=ranking-clan"><li>Ranking de Clã</li></a>
+				<a href="?module=ranking-fama"><li>Ranking de Fama</li></a>
+			</ul>
+		</li>
+		<li><a href="#">Informações</a>
+			<ul>
+				<a href="?module=online"><li>Quem está online</li></a>
+			</ul>
+		</li>
+	</ul>
+</div>
+{/if}

@@ -14,7 +14,11 @@
 	if( !isset( $_SESSION[ 'gm_level' ] ) )
 		$_SESSION[ 'gm_level' ] = -1;
 	// carregamos o template geral
-	if( !isset( $_GET[ 'module' ] ) )
+	if( !file_exists( 'system/configuracao.php' ) )
+	{
+		require_once 'modules/install.php';
+	}
+	else if( !isset( $_GET[ 'module' ] ) )
 	{
 		$tpl->assign( 'content', 'default' );
 		$tpl->draw( 'home' );

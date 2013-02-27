@@ -25,7 +25,11 @@
 				$query = $mysql->sql_query();
 				$query = $mysql->fetch_assoc();
 				$dados[ 'senha_antiga' ] = md5_pass( $dados[ 'senha_antiga' ] );
-				if( $dados[ 'senha_antiga' ] != $query[ 'user_pass' ] )
+				if( $dados[ 'senha_antiga' ] != $dados[ 'confirme_senha_antiga' ] )
+				{
+					$tpl->assign( 'msg', '<div class="alert error"><b>[Troca de senha]:</b> A senha antiga e a confirmação da senha antiga não concidem.</div>' );
+				}
+				else if( $dados[ 'senha_antiga' ] != $query[ 'user_pass' ] )
 				{
 					$tpl->assign( 'msg', '<div class="alert error"><b>[Troca de senha]:</b> Senha atual inválida.</div>' );
 				}

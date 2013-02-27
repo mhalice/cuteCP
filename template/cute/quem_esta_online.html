@@ -1,8 +1,8 @@
-<div class="title">Quem está online</div>
+<div class="title">Quem está online <span>- Lista de jogadores online no servidor</span></div>
 <div class="conteudo">
 Há <b>{$online_count}</b> jogadores online.
-  {if="$online_count > 1"}
-<table width="486" cellpadding="5" cellspacing="0" class="tabela">
+  {if="$online_count > 0"}
+<table width="99%" cellpadding="5" cellspacing="0" class="tabela">
   <thead class="thead">
       <tr>
         <td align="center">Nome</td>
@@ -14,9 +14,9 @@ Há <b>{$online_count}</b> jogadores online.
   </thead>
   {$i=0}
   {loop="dados"}
-  {if="($is_logged && ($member.gm_level >= $dados.$i.group_id && $dados.$i.group_id > 10)) || ($dados.$i.group_id <= 10)"}
+  {if="($is_logged && ($member.gm_level >= $dados.$i.$gm_table && $dados.$i.$gm_table > 10)) || ($dados.$i.$gm_table <= 10)"}
   <tr>
-    <td align="center">{if="$is_logged && $dados.$i.group_id >= 1 && $dados.$i.group_id <= 10"}<span class="badge badge-orange">VIP</span>{/if} {$dados.$i.name}</td>
+    <td align="center">{if="$is_logged && $dados.$i.$gm_table >= 1 && $dados.$i.$gm_table <= 10"}<span class="badge badge-orange">VIP</span>{/if} {$dados.$i.name}</td>
     <td align="center">{$dados.$i.base_level}</td>
     <td align="center">{$dados.$i.job_level}</td>
 	<td align="center">{function="getjobname($dados.$i.class)"}</td>

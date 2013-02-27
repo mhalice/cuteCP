@@ -7,7 +7,6 @@
  * -------------
  * desenvolvido por eru yuuko
  */
-require_once( __DIR__.'/configuracao.php' );
 
 class	nucleo	{
 	

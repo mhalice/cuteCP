@@ -4,7 +4,7 @@
 		$( ".is-ui-button" ).button();
 	});
 </script>
-<div class="title">Edite os dados de sua conta</div>
+<div class="title">Editar dados <span>- atualize ou edite os dados de sua conta</span></div>
 <div class="conteudo">
 {if="isset( $msg )"}
 	{$msg}
@@ -16,14 +16,18 @@
 	</ul>
     <div id="tabs-1">Preencha os campos abaixo para <b>trocar sua senha</b>.
     <form name="trocar-minha-senha" method="POST" action="?module=editar&do=edit-pass">
-		<table width="251" border="0" align="center" cellpadding="4" cellspacing="4">
+		<table width="340" border="0" align="center" cellpadding="4" cellspacing="4">
 		  <tr>
 			<td>Senha antiga:</td>
-			<td><input type="password" name="senha_antiga" id="textfield" /></td>
+			<td><input type="password" name="senha_antiga" size="30" id="textfield" /></td>
+		  </tr>
+		  <tr>
+			<td>Confirme a antiga:</td>
+			<td><input type="password" name="confirme_senha_antiga" size="30" id="textfield" /></td>
 		  </tr>
 		  <tr>
 			<td>Nova senha:</td>
-			<td><input type="password" name="nova_senha" id="textfield" /></td>
+			<td><input type="password" name="nova_senha" size="30" id="textfield" /></td>
 		  </tr>
 		  <tr>
 			<td>&nbsp;</td>
@@ -34,18 +38,18 @@
 	</div>
 	<div id="tabs-2">
 		<form name="trocar-minha-senha" method="POST" action="?module=editar&do=edit-email">
-			<table width="251" border="0" align="center" cellpadding="4" cellspacing="4">
+			<table width="340" border="0" align="center" cellpadding="4" cellspacing="4">
 			  <tr>
 				<td>Email antigo:</td>
-				<td><input type="text" name="email_antigo" id="textfield" /></td>
+				<td><input type="text" name="email_antigo" size="30" id="textfield" /></td>
 			  </tr>
 			  <tr>
 				<td>Novo email:</td>
-				<td><input type="text" name="email_novo" id="textfield" /></td>
+				<td><input type="text" name="email_novo" size="30" id="textfield" /></td>
 			  </tr>
 			  <tr>
 				<td>Senha atual:</td>
-				<td><input type="password" name="senha_atual" id="textfield" /></td>
+				<td><input type="password" name="senha_atual" size="30" id="textfield" /></td>
 			  </tr>
 			  <tr>
 				<td>&nbsp;</td>

@@ -20,6 +20,7 @@
 	}
 	$tpl->assign( 'allow_last_location', $config['allow_last_location'] );
 	$tpl->assign( 'online_count', $quantidade );
+	$tpl->assign( 'gm_table', GM_LEVEL_TABLE );
 	if( $quantidade ) $tpl->assign( 'dados', $entries );
 	$tpl->assign( 'content', 'quem_esta_online' );
 	$tpl->draw( 'home' );

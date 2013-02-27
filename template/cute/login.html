@@ -1,5 +1,8 @@
-<div class="title">Entrar em minha conta</div>
+<div class="title">Entrar em minha conta <span>- Tenha acesso a todas as funcionalidades</span></div>
 <div class="conteudo">
+{if="isset( $LOGIN_TIMES_EXPIRE )"}
+	{$LOGIN_TIMES_EXPIRE}
+{else}
 {if="isset( $msg )"}
 	{$msg}
 {/if}
@@ -21,4 +24,5 @@
             </table>
       </form>
   </center>
+{/if}
 </div>

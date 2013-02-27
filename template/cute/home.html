@@ -7,31 +7,92 @@
 <script src="js/jquery-1.9.0.js"></script>
 <script src="js/jquery-ui.js"></script>
 <script>
-	$(function(){
+	$(document).ready(function(){
 		$('.button-ui').button();
+		$('.login-my-account').click(function(){
+			$('#site_fade').fadeIn();
+			$('#quickly-login').show();
+			return false;
+		});
+		$('.fechar').click(function(){
+			$('#site_fade').fadeOut();
+			$('#quickly-login').hide();
+			return false;
+		});
+		$('.fechar-acc').click(function(){
+			$('#site_fade').fadeOut();
+			$('.menu-account').hide();
+			return false;
+		});
+		$('.account-details').click(function(){
+			$('#site_fade').fadeIn();
+			$('.menu-account').show();
+		});
 	});
 </script>
 <title>{$cp_title} :: {$cute_version}</title>
 </head>
 <body>
+{if="$installed"}
+<div id="site_fade"></div>
+<!-- topo -->
+<div id="topbar">
+	<div id="centralize-topbar">
+		{if="!$is_logged"}
+		<div class="create-new-account f-r"><a href="?module=register">Criar nova conta</a></div>
+		<div class="f-r box-login"><a href="#" class="login-my-account">Entrar em minha conta</a>
+			<div id="quickly-login">
+				<div class="icon-arrow"></div>
+				<div class="login-top-box">
+					<span class="f-r fechar close-x">x</span>
+					<center>
+						<form name="logar" method="post" action="?module=login">
+                            <div id="line-input">
+                                Seu login de usuário<br>
+                                <input name="login" type="text" id="textfield">
+                            </div>
+                            <div id="line-input">
+                                Sua senha<br>
+                                <input name="senha" type="password" id="textfield">
+                            </div>
+                            <button type="submit" class="cupid-green" id="logar-fast">Entrar</button>
+                        </form>
+					</center>
+				</div>
+			</div>
+		</div>
+		{else}
+			<div class="f-r box-account">Olá, <a href="#" class="account-details"><b>{$member.login} (Gerenciar).</b></a> | <a href="?module=logout">Deslogar</a>
+            	<div class="menu-account">
+					<div class="icon-arrow-account"></div>
+					<div class="account-top-box">
+					<span class="f-r fechar-acc close-x">x</span>
+						<ul>
+							<a href="?module=statistic"><li>Estatísticas</li></a>
+							<a href="?module=characters"><li>Personagens</li></a>
+							<a href="?module=editar"><li>Editar dados</li></a>
+						</ul>
+					</div>
+                </div>
+            </div>
+		{/if}
+	</div>
+</div>
+{/if}
+
+<!-- topo -->
 <div id="content">
   <!-- header -->
   {include="header"}
   <!-- header -->
-  <!-- sidebar -->
-  {include="sidebar"}
-  <!-- sidebar -->
   <!-- conteudo -->
   <div id="conteudo">
-    {if="$is_logged"}
-		<div class="whoislogged">Você está logado como: <b>{$member.login}</b>.</div>
-	{/if}
     {include="$content"}
+	<!-- creditos -->
+	{include="rodape"}
+	<!-- creditos -->
   </div>
   <!-- conteudo -->
 </div>
-<!-- creditos -->
-{include="rodape"}
-<!-- creditos -->
 </body>
 </html>

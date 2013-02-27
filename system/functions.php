@@ -7,9 +7,9 @@
  * -------------
  * desenvolvido por eru yuuko
  */
-require_once('nucleo.php');
-require_once('database.php');
-require_once('configuracao.php');
+require_once('system/nucleo.php');
+require_once('system/database.php');
+require_once('system/configuracao.php');
 
 function	is_logged(){
 	return isset( $_SESSION[ 'logged_in'] );
@@ -166,6 +166,12 @@ function	md5_pass( $val )
 {
 	global $config;
 	return $config[ 'md5_pass' ] ? md5( $val ): $val;
+}
+
+function	portstatus( $port )
+{
+	$conectado = @fsockopen(SERVER_HOST, $port, $numeroDoErro, $stringDoErro, 10); // Este último é o timeout, em segundos
+    return ($conectado) ? 'online':'offline';
 }
 
 ?>

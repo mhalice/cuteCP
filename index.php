@@ -10,6 +10,7 @@
 $version = '1.2.0';
 require_once('system/rain.tpl.class.php');
 session_start();
+ob_start();
 if( file_exists( 'system/configuracao.php' ) )
 {
 	require_once('system/nucleo.php');

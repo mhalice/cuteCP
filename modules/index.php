@@ -33,13 +33,9 @@
 		else
 		{
 			if( file_exists( 'modules/'. (string)$_GET[ 'module' ] .'.php' ) )
-			{
 				require_once 'modules/'. (string)$_GET[ 'module' ] .'.php';
-			}
 			else
-			{
 				require_once 'modules/error.php';
-			}
 		}
 	}
 ?>

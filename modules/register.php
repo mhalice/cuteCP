@@ -26,17 +26,11 @@
 	{
 		$dados = $core->request( 'POST' );
 		if( strlen( $dados[ 'login' ] ) < 4 || strlen( $dados[ 'senha' ] ) < 4 )
-		{
 			$tpl->assign( 'msg', '<div class="alert error">Login e/ou senha inválidos.</div>' );
-		}
 		else if( $dados[ 'senha' ] != $dados[ 'confirme_senha' ] )
-		{
 			$tpl->assign( 'msg', '<div class="alert error">As senhas são diferentes!</div>' );
-		}
 		else if( !filter_var($dados[ 'email' ], FILTER_VALIDATE_EMAIL) )
-		{
 			$tpl->assign( 'msg', '<div class="alert error">Email inválido.</div>' );
-		}
 		else
 		{
 			$login = addslashes( $dados[ 'login' ] );
@@ -50,9 +44,7 @@
 			$query = $mysql->sql_query();
 			$query = $mysql->num_rows();
 			if( $query )
-			{
 				$tpl->assign( 'msg', '<div class="alert error">Login ou Email já existente!</div>' );
-			}
 			else
 			{
 				$query = $mysql->build_query( sprintf( "insert into `login` ( `userid`,`user_pass`,`sex`,`email`,`last_ip`,`birthdate` ) values( '%s', '%s', '%s', '%s', '%s', '%s' )", $login, $senha, $sexo, $email, $ip, $data ) );

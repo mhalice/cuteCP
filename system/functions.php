@@ -165,13 +165,23 @@ function	s_var( $name )
 function	md5_pass( $val )
 {
 	global $config;
-	return $config[ 'md5_pass' ] ? md5( $val ): $val;
+	return $config[ 'md5_pass' ] ? ni( md5( $val ) ): ni( $val );
 }
 
 function	portstatus( $port )
 {
 	$conectado = @fsockopen(SERVER_HOST, $port, $numeroDoErro, $stringDoErro, 10); // Este último é o timeout, em segundos
     return ($conectado) ? 'online':'offline';
+}
+
+function	ni( $str)
+{
+	$j = preg_replace( "/(from|select|insert|delete|where|drop table|show tables|#|\*|--|\\\\)/","", $str );
+	$j = trim( $j );
+	$j = strip_tags( $j );
+	$j = addslashes( $j );
+	$j = str_replace( "'", "", $j );
+	return $j;
 }
 
 ?>

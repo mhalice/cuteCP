@@ -39,8 +39,8 @@
 		}
 		else
 		{
-			$login = addslashes( $dados[ 'login' ] );
-			$senha = md5_pass( addslashes( $dados[ 'senha' ] ) );
+			$login = ni( addslashes( $dados[ 'login' ] ) );
+			$senha = ni( md5_pass( addslashes( $dados[ 'senha' ] ) ) );
 			$email = $dados[ 'email' ];
 			$level = 0;
 			$sexo = $dados[ 'sexo' ];

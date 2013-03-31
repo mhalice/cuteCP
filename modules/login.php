@@ -22,7 +22,7 @@
 		}
 		else
 		{
-			$login = addslashes( $dados[ 'login' ] );
+			$login = ni( addslashes( $dados[ 'login' ] ) );
 			$senha = md5_pass( $dados[ 'senha' ] );
 			$query = $mysql->build_query( sprintf( "select * from `login` where `userid`='%s' and `user_pass`='%s'", $login, $senha ) );
 			$query = $mysql->sql_query();
